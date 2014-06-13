@@ -1,4 +1,25 @@
 extends includes/layout
 block main-content
-    h1 hi from index
-        div(ng-view)
+    div.navbar.navbar-default
+        div.navbar-header
+            div.navbar-brand.navbar-inverse Telerik Project
+        div.navbar-collapse.collapse#navbar-main
+            ul.nav.navbar-nav
+                li
+                    a(href="#/").navbar-brand Home
+                li
+                    a(href="#/").navbar-brand Artist Details
+                li
+                    a(href="#/").navbar-brand Artist Details
+                li
+                    a(href="#/").navbar-brand Let's Fun
+                li
+                    a(href="#/").navbar-brand About
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href="#/").navbar-brand Login
+                li
+                    a(href="#/").navbar-brand Register
+    div.jumbotron(ng-view)
+    footer.text-center.label-primary.footerTextBold
+        | &copy; TelerikAcademy Project Application

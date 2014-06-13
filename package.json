@@ -1,15 +1,16 @@
 {
   "name": "TelerikProject",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Project for certificate",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-    "engines":{
-       "node": "0.10.x",
-        "npm": "1.4.x"
-    },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
   "author": "Zdravko Petrov",
   "license": "MIT",
   "dependencies": {
@@ -18,5 +19,6 @@
     "stylus": "^0.46.0",
     "body-parser": "^1.3.0",
     "mongoose": "^3.8.12"
-  }
+  },
+  "devDependencies": {},
 }
