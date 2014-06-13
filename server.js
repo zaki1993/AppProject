@@ -43,21 +43,6 @@ if(err){
 db.on('error',function(err){
     console.log(err);
 });
-var messageSchema = mongoose.Schema({
-    message: String
-});
-var Message = mongoose.model('Message',messageSchema);
-Message.remove({}).exec(function(err){
-    if(err){
-        console.log(err);
-        return;
-    }
-    console.log("Message deleted...");
-});
-Message.create({message: 'Hi from mongoose'}).then(function(model){
-console.log(model.message);
-});
-
 app.get('*', function(req,res){
     res.render('index');
 });
