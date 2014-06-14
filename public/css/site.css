@@ -3,6 +3,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body .navbar-right .navbar-form input {
+  margin-right: 10px;
+}
 .image-container {
   width: 100%;
   height: 100%;
@@ -13,6 +16,8 @@ body {
 #mario-canvas {
   background-color: #00f;
   display: block;
+  width: 603px;
+  height: 400px;
 }
 #lifeDiv {
   display: inline-block;
