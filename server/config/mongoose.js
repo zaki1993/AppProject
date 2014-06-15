@@ -29,9 +29,9 @@ module.exports = function(config){
             return;
         }
         if(collection.length === 0){
-            User.create({username: 'zdravko.petrov', fistName: 'Zdravko', lastName: 'Petrov'});
-            User.create({username: 'ivan.it', fistName: 'Ivan', lastName: 'Kostov'});
-            User.create({username: 'doncho', fistName: 'Doncho', lastName: 'Minkov'});
+            User.create({username: 'zdravko.petrov', firstName: 'Zdravko', lastName: 'Petrov'});
+            User.create({username: 'ivan.it', firstName: 'Ivan', lastName: 'Kostov'});
+            User.create({username: 'doncho', firstName: 'Doncho', lastName: 'Minkov'});
             console.log("Users added to database...");
         }
         passport.use(new LocalPassport(function(username, password, done){

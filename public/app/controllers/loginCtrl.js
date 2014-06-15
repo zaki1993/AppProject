@@ -1,5 +1,13 @@
-app.controller('LoginCtrl',function($scope){
+app.controller('LoginCtrl',function($scope,$http, notifier,identity,auth){
+    $scope.identity = identity;
 $scope.login = function(user){
-    console.log(user);
+auth.login(user).then(function(success){
+if(success){
+    notifier.success("Successful login!");
+}
+    else{
+    notifier.error('Username/Password combination is not valid!');
+}
+});
 }
 });
