@@ -11,15 +11,11 @@ if(success){
 });
 };
     $scope.signout = function(){
-        auth.logout().then(function(success){
-            if(success){
+        auth.logout().then(function(){
                 notifier.success('Successful logout');
+            $scope.user.username = '';
+            $scope.user.password = '';
                 $location.path('/');
-            }
-            else{
-                notifier.error('Something bad happened');
-            }
         });
-
     }
 });

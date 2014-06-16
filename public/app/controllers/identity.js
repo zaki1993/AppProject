@@ -1,6 +1,6 @@
-app.factory('identity',function(){
+app.factory('identity',function($window){
     return{
-        currentUser: undefined,
+        currentUser: $window.bootstrappedUserObject,
         isAuthenticated: function(){
             return !!this.currentUser;
         }

@@ -15,16 +15,12 @@ app.factory('auth',function($http,$q,identity){
         },
         logout: function(){
             var deferred = $q.defer();
-            $http.post('/logout').success(function(response){
-                if(response.success){
+            $http.post('/logout').success(function(){
+
                     identity.currentUser = undefined;
                     deferred.resolve(true);
-                }
-                else{
-                    deferred.resolve(false);
-                }
+                });
                 return deferred.promise;
-            });
         }
     }
 });
