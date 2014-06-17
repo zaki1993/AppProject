@@ -13,6 +13,10 @@ $locationProvider.html5Mode(true);
         templateUrl: '/partials/home',
         controller: 'MainCtrl'
     })
+        .when('/signup',{
+            templateUrl: '/partials/signup',
+            controller: 'SignUpCtrl'
+        })
         .when('/admin/users',{
             templateUrl: '/partial/users-list',
             controller: 'UserListCtrl',

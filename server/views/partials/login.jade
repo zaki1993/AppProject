@@ -4,6 +4,7 @@
             input.form-control(type="text",placeholder="username", ng-model="user.username")
             input.form-control(type="password",placeholder="password", ng-model="user.password")
          button.btn.btn-primary(ng-click="login(user)") Login
+        a.btn.btn-primary(href="#/signup") Sign Up
 
     ul.nav.navbar-nav.navbar-right(ng-show="identity.isAuthenticated()")
         li.dropdown

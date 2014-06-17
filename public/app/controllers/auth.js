@@ -1,5 +1,16 @@
 app.factory('auth',function($http,$q,identity,UsersResource){
     return{
+        signup:function(user){
+        var user = new UsersResource(user);
+            var deferred = $q.defer();
+            user.$save().then(function(){
+                identity.currentUser = user;
+                deferred.resolve();
+            }, function(response){
+                deferred.reject(response);
+            });
+            return deferred.promise;
+        },
         login: function (user) {
             var deferred = $q.defer();
             $http.post('/login', user).success(function (response) {
