@@ -21,7 +21,8 @@ module.exports = function(config){
         firstName: String,
         lastName: String,
         salt: String,
-        hashPass: String
+        hashPass: String,
+        roles: [String]
     });
     userSchema.method({
         authenticate: function(password){
@@ -33,7 +34,6 @@ module.exports = function(config){
             }
         }
     });
-
     var User = mongoose.model('User',userSchema);
     User.find({}).exec(function(err,collection){
         if(err){
@@ -41,52 +41,19 @@ module.exports = function(config){
             return;
         }
         if(collection.length === 0){
-            var salt;
-            var hashedPwd;
-            salt = generateSalt();
-            hashedPwd = generateHashedPassword(salt,'Zdravko');
-            User.create({username: 'zdravko.petrov', firstName: 'Zdravko', lastName: 'Petrov',salt: salt, hashedPwd: hashedPwd});
-            salt = generateSalt();
-            hashedPwd = generateHashedPassword(salt,'Ivan');
-            User.create({username: 'ivan.it', firstName: 'Ivan', lastName: 'Kostov',salt: salt, hashedPwd: hashedPwd});
-            salt = generateSalt();
-            hashedPwd = generateHashedPassword(salt,'Doncho');
-            User.create({username: 'doncho', firstName: 'Doncho', lastName: 'Minkov',salt: salt, hashedPwd: hashedPwd});
-            console.log("Users added to database...");
-        }
-        passport.use(new LocalPassport(function(username, password, done){
-        User.findOne({ username: username}).exec(function(err,user){
-            if(err) {
-                console.log('Error loading user: ' + err);
-                return;
+                var salt;
+                var hashedPwd;
+                salt = generateSalt();
+                hashedPwd = generateHashedPassword(salt,'Zdravko');
+                User.create({username: 'zdravko.petrov', firstName: 'Zdravko', lastName: 'Petrov',salt: salt, hashedPwd: hashedPwd, roles: ['admin']});
+                salt = generateSalt();
+                hashedPwd = generateHashedPassword(salt,'Ivan');
+                User.create({username: 'ivan.it', firstName: 'Ivan', lastName: 'Kostov',salt: salt, hashedPwd: hashedPwd, roles: ['standard']});
+                salt = generateSalt();
+                hashedPwd = generateHashedPassword(salt,'Doncho');
+                User.create({username: 'doncho', firstName: 'Doncho', lastName: 'Minkov',salt: salt, hashedPwd: hashedPwd, roles: []});
+                console.log("Users added to database...");
             }
-            if(user){
-                return done(null,user);
-            }
-            else{
-                return done(null, false);
-            }
-        });
-        }));
-        passport.serializeUser(function(user,done){
-            if(user){
-                return done(null, user._id);
-            }
-       });
-        passport.deserializeUser(function(id,done){
-            User.findOne({_id: id}).exec(function(err,user){
-                if(err){
-                console.log("Error loading user: "+ err);
-                return;
-            }
-                if(user){
-                    return done(null, user);
-                }
-                else{
-                    return done(null,false);
-                }
-            });
-        });
     });
 };
 function generateSalt(){
