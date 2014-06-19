@@ -6,7 +6,9 @@ var passport = require('passport'),
 var User = mongoose.model('User');
 module.exports = function(app){
 
-    app.get('/api/users', auth.isInRole('admin'), UsersController.getAllUsers);
+    app.get('/api/users', auth.isInRole('admin'), UsersController.createUser);
+    app.post('/api/users', UsersController.getAllUsers);
+    app.put('/api/users', auth.isAuthenticated, UsersController.updateUser);
 
     app.get('/partials/:partialName',function(req,res){
         res.render('partials/'+ req.params.partialName);

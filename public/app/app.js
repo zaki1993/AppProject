@@ -1,10 +1,15 @@
 var app = angular.module('app',['ngResource','ngRoute']).value('toastr',toastr);
 app.config(function($routeProvider, $locationProvider){
 $locationProvider.html5Mode(true);
-    var routeRoleChecks = {
-        admin: {
-            auth: function(auth){
+    var routeUserChecks = {
+        adminRole: {
+            authenticate: function(auth){
                 return auth.isAuthorizedForRole('admin');
+            }
+        },
+        authenticated: {
+            authenticate: function(auth){
+                return auth.isAuthorizedForRole();
             }
         }
     };
@@ -17,10 +22,15 @@ $locationProvider.html5Mode(true);
             templateUrl: '/partials/signup',
             controller: 'SignUpCtrl'
         })
+        .when('/profile',{
+            templateUrl: 'partials/profile',
+            controller: 'ProfileCtrl',
+            resolve: routeUserChecks.authenticated
+        })
         .when('/admin/users',{
             templateUrl: '/partial/users-list',
             controller: 'UserListCtrl',
-            resolve: routeRoleChecks.admin
+            resolve: routeUserChecks.adminRole
         });
 });
 app.run(function($rootScope, $location){
