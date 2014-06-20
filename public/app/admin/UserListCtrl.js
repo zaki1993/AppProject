@@ -1,3 +1,3 @@
-app.controller('UserListCtrl',function($scope, UsersResource){
-$scope.user = UsersResource.query();
+app.controller('UserListCtrl', function($scope, UsersResource) {
+    $scope.users = UsersResource.query();
 });

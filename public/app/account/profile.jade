@@ -1,8 +1,8 @@
-.contailer
+.container
     .well
-        form.form-horizontal(name="signUpForm")
+        form.form-horizontal(name="profileForm")
             fieldset
-                legend Create new user
+                legend Create New User
                 .form-group
                     label.col-md-2.control-label(for="first-name") First Name
                     .col-md-10
@@ -12,13 +12,9 @@
                     .col-md-10
                         input.form-control(type="text", placeholder="Last Name", ng-model="user.lastName", required)
                 .form-group
-                    label.col-md-2.control-label(for="username") Username
-                    .col-md-10
-                        input.form-control(type="text", placeholder="Username", ng-model="user.username", required)
-                .form-group
                     label.col-md-2.control-label(for="password") Password
                     .col-md-10
-                        input.form-control(type="password", placeholder="Password", ng-model="user.password", required)
+                        input.form-control(type="password", placeholder="Password", ng-model="user.password")
                 .pull-right
-                    button.btn.btn-primary(ng-click="signUp(user)",ng-disabled="signUpForm.$invalid") Register
-                    button.btn.btn-primary(href="#/") Cancel
+                    button.btn.btn-primary(ng-click="update(user)", ng-disabled="profileForm.$invalid") Update
+                    a.btn.btn-primary(href="#/") Cancel

@@ -1,14 +1,18 @@
 extends includes/layout
 block main-content
-    div.navbar.navbar-default
-        div.navbar-header
-            div.navbar-brand.navbar-inverse Telerik Project
-        div.navbar-collapse.collapse#navbar-main
-            ul.nav.navbar-nav
-                li
-                    a(href="#/").navbar-brand Home
-            div(ng-include="'partials/login'")
-
-    div.jumbotron(ng-view)
-    footer.text-center.label-primary.footerTextBold
-        | &copy; TelerikAcademy Project Application
+    header.nav.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href="#/") TA Courses
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="#/") Home
+                    li
+                        a(href="#/courses") Courses
+                div(ng-include="'partials/account/login'")
+    section
+        div(ng-view)
+    footer
+        p.text-center
+            | &copy; TelerikAcademy Project Application

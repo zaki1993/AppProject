@@ -1,22 +1,27 @@
-var passport = require('passport'),
-    auth = require('./auth'),
-    mongoose = require('mongoose'),
-    UsersController = require('../controllers/UsersController');
+var auth = require('./auth'),
+    controllers = require('../controllers');
 
-var User = mongoose.model('User');
-module.exports = function(app){
+module.exports = function(app) {
+    app.get('/api/users', auth.isInRole('admin'), controllers.users.getAllUsers);
+    app.post('/api/users', controllers.users.createUser);
+    app.put('/api/users', auth.isAuthenticated, controllers.users.updateUser);
 
-    app.get('/api/users', auth.isInRole('admin'), UsersController.createUser);
-    app.post('/api/users', UsersController.getAllUsers);
-    app.put('/api/users', auth.isAuthenticated, UsersController.updateUser);
+    app.get('/api/courses', controllers.courses.getAllCourses);
+    app.get('/api/courses/:id', controllers.courses.getCourseById);
 
-    app.get('/partials/:partialName',function(req,res){
-        res.render('partials/'+ req.params.partialName);
+    app.get('/partials/:partialArea/:partialName', function(req, res) {
+        res.render('../../public/app/' + req.params.partialArea + '/' + req.params.partialName)
     });
+
     app.post('/login', auth.login);
-    app.post('/logout',auth.logout);
+    app.post('/logout', auth.logout);
 
-    app.get('*', function(req,res){
-        res.render('index',{currentUser: req.user});
+    app.get('/api/*', function(req, res) {
+        res.status(404);
+        res.end();
+    })
+
+    app.get('*', function(req, res) {
+        res.render('index', {currentUser: req.user});
     });
-};
+}
