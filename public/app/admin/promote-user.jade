@@ -1,0 +1,21 @@
+.container
+    .jumbotron
+        form.form-horizontal(name="PromoteForm")
+            fieldset
+                legend Promote Users
+                .form-group
+                    label.col-md-2.control-label(for="first-name") User to promote
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Username", ng-model="user.firstName", required)
+
+                    label.col-md-2.control-label(for="Roles") Role to be promoted
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Role", ng-model="user.role", required)
+
+                    label.col-md-2.control-label(for="Pass") Your Password
+                    .col-md-10
+                        input.form-control(type="password", placeholder="Password", ng-model="user.password")
+
+                    .pull-right
+                        button.btn.btn-primary(ng-click="promote(user)", ng-disabled="PromoteForm.$invalid") Promote
+                        a.btn.btn-primary(href="#/") Cancel

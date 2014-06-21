@@ -1,6 +1,5 @@
 app.controller('LoginCtrl', function($scope, $location, notifier, identity, auth) {
     $scope.identity = identity;
-
     $scope.login = function(user) {
         auth.login(user).then(function(success) {
             if (success) {
@@ -10,8 +9,7 @@ app.controller('LoginCtrl', function($scope, $location, notifier, identity, auth
                 notifier.error('Username/Password combination is not valid!');
             }
         });
-    }
-
+    };
     $scope.logout = function() {
         auth.logout().then(function() {
             notifier.success('Successful logout!');
@@ -21,5 +19,5 @@ app.controller('LoginCtrl', function($scope, $location, notifier, identity, auth
             }
             $location.path('/');
         })
-    }
-})
+    };
+});

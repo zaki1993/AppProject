@@ -3,16 +3,22 @@ block main-content
     header.nav.navbar-inverse.navbar-fixed-top
         .container
             .navbar-header
-                a.navbar-brand(href="#/") TA Courses
+                a.Logo.navbar-brand(href="#/") Lets Practise
             .navbar-collapse.collapse
                 ul.nav.navbar-nav
                     li
                         a(href="#/") Home
                     li
                         a(href="#/courses") Courses
+                    li
+                        a(href="#/havefun") Have fun
+                    li
+                        a(href="#/about") About
+
+
                 div(ng-include="'partials/account/login'")
     section
         div(ng-view)
     footer
         p.text-center
-            | &copy; TelerikAcademy Project Application
+            | &copy; Lets Practise Development 2013-2014

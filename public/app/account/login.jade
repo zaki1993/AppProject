@@ -14,6 +14,7 @@
             ul.dropdown-menu
                 li(ng-show="identity.currentUser.isAdmin()")
                     a(href="#/admin/users") Users
+                    a(href="#/admin/promote") Promote Users
                 li(ng-show="identity.isAuthenticated()")
                     a(href="#/profile") Profile
                 li

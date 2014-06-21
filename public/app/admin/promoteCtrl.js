@@ -1,17 +1,16 @@
-app.controller('ProfileCtrl', function($scope, $location, auth, identity) {
+app.controller('PromoteCtrl', function($scope, $location, auth, identity, notifier) {
     $scope.user = {
         firstName: identity.currentUser.firstName,
         lastName: identity.currentUser.lastName,
         role: identity.currentUser.roles
     }
 
-    $scope.update = function(user) {
-        auth.update(user).then(function() {
+    $scope.promote = function(user) {
+        auth.promote(user).then(function() {
             $scope.firstName = user.firstName;
             $scope.lastName = user.lastName;
             $scope.roles = user.role;
-            $location.path('/');
-            console.log($scope.roles = user.role);
+            notifier.success('Successfully promoted...');
         });
     }
 });

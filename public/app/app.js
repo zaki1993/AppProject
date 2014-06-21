@@ -1,8 +1,6 @@
 var app = angular.module('app', ['ngResource', 'ngRoute']).value('toastr', toastr);
 
 app.config(function($routeProvider, $locationProvider) {
-    // $locationProvider.html5Mode(true);
-
     var routeUserChecks = {
         adminRole: {
             authenticate: function(auth) {
@@ -15,7 +13,6 @@ app.config(function($routeProvider, $locationProvider) {
             }
         }
     };
-
     $routeProvider
         .when('/', {
             templateUrl: '/partials/main/home',
@@ -43,8 +40,18 @@ app.config(function($routeProvider, $locationProvider) {
             controller: 'UserListCtrl',
             resolve: routeUserChecks.adminRole
         })
-});
-
+        .when('/admin/promote',{
+            templateUrl: '/partials/admin/promote-user',
+            controller: 'PromoteCtrl',
+            resolve: routeUserChecks.adminRole
+        })
+        .when('/about',{
+            templateUrl: '/partials/main/Info'
+        })
+        .when('/havefun',{
+            templateUrl: 'partials/main/lets-fun'
+        });
+    });
 app.run(function($rootScope, $location) {
     $rootScope.$on('$routeChangeError', function(ev, current, previous, rejection) {
         if (rejection === 'not authorized') {
