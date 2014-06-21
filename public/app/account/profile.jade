@@ -16,9 +16,5 @@
                     .col-md-10
                         input.form-control(type="password", placeholder="Password", ng-model="user.password")
                 .form-group
-                    label.col-md-2.control-label(for="Roles") Role to be promoted
-                    .col-md-10
-                        input.form-control(type="text", placeholder="Role", ng-model="user.role", required)
-                .pull-right
                     button.btn.btn-primary(ng-click="update(user)", ng-disabled="profileForm.$invalid") Update
                     a.btn.btn-primary(href="#/") Cancel

@@ -1,7 +1,14 @@
 .container
-    table.table
-        tr(ng-repeat="user in users")
-            td {{ user.username }}
-            td {{ user.firstName }}
-            td {{ user.lastName }}
-            td {{ user.roles }}
+    .jumbotron
+        table.table
+            tr
+                th Username
+                th Firstname
+                th Lastname
+                th Role
+
+            tr(ng-repeat="user in users")
+                td {{ user.username }}
+                td {{ user.firstName }}
+                td {{ user.lastName }}
+                td {{ user.roles.toString() }}

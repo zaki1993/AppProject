@@ -1,5 +1,6 @@
-var encryption = require('../utilities/encryption');
-var User = require('mongoose').model('User');
+var encryption = require('../utilities/encryption'),
+    mongoose = require('mongoose'),
+    User = require('mongoose').model('User');
 
 module.exports = {
     createUser: function(req, res, next) {
@@ -29,8 +30,18 @@ module.exports = {
                 updatedUserData.salt = encryption.generateSalt();
                 updatedUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
             }
-
             User.update({_id: req.body._id}, updatedUserData, function() {
+                res.end();
+            })
+        }
+        else {
+            res.send({reason: 'You do not have permissions!'})
+        }
+    },
+    promoteUser: function(req, res, next) {
+        if (req.user._id == req.body._id || req.user.roles.indexOf('admin') > -1) {
+            var updatedUserData = req.body;
+            User.update({roles: req.body.roles}, updatedUserData, function() {
                 res.end();
             })
         }
@@ -47,4 +58,4 @@ module.exports = {
             res.send(collection);
         })
     }
-}
+};

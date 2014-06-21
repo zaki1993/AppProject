@@ -1,0 +1,20 @@
+.container
+    .jumbotron
+        .well
+            form.form-horizontal(name="ContactForm")(ng-controller="InfoCtrl")
+                fieldset
+                    legend Send us a message
+                    .col-md-6
+                        .form-group
+                            label.col-md-2.control-label(for="Username") Username
+                            .col-md-10
+                                 input.InputContact.form-control(type="text", placeholder="Username", ng-model="user.username", required)
+                        .form-group
+                            label.col-md-2.control-label(for="Username") Message
+                            .col-md-10
+                                textarea.ContactUs(name="ContactUs",
+                                placeholder="If you have some problems, please send us message with the problem... We will respond as soon as possible",
+                                required)
+                        .col-md-offset-6
+                            button.buttonsContact.btn.btn-primary(ng-click="message()", ng-disabled="ContactForm.$invalid") Send
+                            a.buttonsContact.btn.btn-primary(href="#/") Cancel

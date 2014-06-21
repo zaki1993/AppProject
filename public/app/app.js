@@ -45,8 +45,9 @@ app.config(function($routeProvider, $locationProvider) {
             controller: 'PromoteCtrl',
             resolve: routeUserChecks.adminRole
         })
-        .when('/about',{
-            templateUrl: '/partials/main/Info'
+        .when('/contact',{
+            templateUrl: '/partials/account/Info',
+            controller: 'InfoCtrl'
         })
         .when('/havefun',{
             templateUrl: 'partials/main/lets-fun'

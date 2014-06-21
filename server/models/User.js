@@ -1,6 +1,21 @@
 var mongoose = require('mongoose'),
     encryption = require('../utilities/encryption');
 
+var messageSchema = mongoose.Schema({
+    message: String
+});
+var Message = mongoose.model('Message',messageSchema);
+Message.remove({}).exec(function(){
+    if(err){
+        console.log('Messages could not be deleted... ' +err);
+        return;
+    }
+});
+Message.create({message: 'Hello'})
+    .then(function(model){
+        console.log(model.message)
+    });
+
 var userSchema = mongoose.Schema({
     username: { type: String, require: '{PATH} is required', unique: true },
     firstName: { type: String, require: '{PATH} is required' },
@@ -9,6 +24,7 @@ var userSchema = mongoose.Schema({
     hashPass: String,
     roles: [String]
 });
+
 userSchema.method({
     authenticate: function(password) {
         if(encryption.generateHashedPassword(this.salt, password) === this.hashPass){

@@ -15,7 +15,6 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
         },
         update: function(user) {
             var deferred = $q.defer();
-
             var updatedUser = new UsersResource(user);
             updatedUser._id = identity.currentUser._id;
             updatedUser.$update().then(function() {
@@ -30,7 +29,6 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
         },
         login: function(user){
             var deferred = $q.defer();
-
             $http.post('/login', user).success(function(response) {
                 if (response.success) {
                     var user = new UsersResource();
@@ -41,6 +39,32 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
                 else {
                     deferred.resolve(false);
                 }
+            });
+
+            return deferred.promise;
+        },
+        contactUs: function(user) {
+        var deferred = $q.defer();
+        var updatedUser = new UsersResource(user);
+        updatedUser._id = identity.currentUser._id;
+        updatedUser.$update().then(function() {
+            identity.currentUser.username = updatedUser.username;
+            deferred.resolve();
+        }, function(response) {
+            deferred.reject(response);
+        });
+        return deferred.promise;
+    },
+        promote: function(user) {
+            var deferred = $q.defer();
+            var updatedUser = new UsersResource(user);
+            updatedUser._id = identity.currentUser._id;
+            updatedUser.$update().then(function() {
+                identity.currentUser.username = updatedUser.username;
+                identity.currentUser.roles = updatedUser.roles;
+                deferred.resolve();
+            }, function(response) {
+                deferred.reject(response);
             });
 
             return deferred.promise;

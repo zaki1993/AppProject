@@ -11,6 +11,9 @@ body .navbar-right .navbar-form a.btn {
 body .toast-top-right {
   top: 50px;
 }
+body .buttonsContact {
+  margin-left: 10px;
+}
 .image-container {
   width: 100%;
   height: 100%;
@@ -45,4 +48,14 @@ body .toast-top-right {
 .boostedImg {
   width: 100%;
   height: 100%;
+}
+.ContactUs {
+  width: 300px;
+  height: 150px;
+  max-width: 300px;
+  max-height: 150px;
+  text-wrap: normal;
+}
+.InputContact {
+  width: 300px;
 }
