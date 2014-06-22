@@ -47,7 +47,7 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/contact',{
             templateUrl: '/partials/account/Info',
-            controller: 'InfoCtrl'
+            controller: 'ContactCtrl'
         })
         .when('/havefun',{
             templateUrl: 'partials/main/lets-fun'

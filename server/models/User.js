@@ -5,16 +5,6 @@ var messageSchema = mongoose.Schema({
     message: String
 });
 var Message = mongoose.model('Message',messageSchema);
-Message.remove({}).exec(function(){
-    if(err){
-        console.log('Messages could not be deleted... ' +err);
-        return;
-    }
-});
-Message.create({message: 'Hello'})
-    .then(function(model){
-        console.log(model.message)
-    });
 
 var userSchema = mongoose.Schema({
     username: { type: String, require: '{PATH} is required', unique: true },
@@ -22,7 +12,8 @@ var userSchema = mongoose.Schema({
     lastName: { type: String, require: '{PATH} is required' },
     salt: String,
     hashPass: String,
-    roles: [String]
+    roles: [String],
+    message: String
 });
 
 userSchema.method({
@@ -46,7 +37,7 @@ module.exports.seedInitialUsers = function() {
             var hashedPwd;
             salt = encryption.generateSalt();
             hashedPwd = encryption.generateHashedPassword(salt, '14eiuqhwdyeuq');
-            User.create({username: 'zaki1996', firstName: 'Zdravko', lastName: 'Petrov', salt: salt, hashPass: hashedPwd, roles: ['admin']});
+            User.create({username: 'zaki1996', firstName: 'Zdravko', lastName: 'Petrov', salt: salt, hashPass: hashedPwd, roles: ['admin'], message: 'Message'});
             console.log('Users added to database...');
     });
 };

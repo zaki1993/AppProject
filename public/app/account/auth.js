@@ -1,4 +1,4 @@
-app.factory('auth', function($http, $q, identity, UsersResource) {
+app.factory('auth', function($http, $q, identity, UsersResource, notifier) {
     return {
         signup: function(user) {
             var deferred = $q.defer();
@@ -10,8 +10,9 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
             }, function(response) {
                 deferred.reject(response);
             });
-
             return deferred.promise;
+        },
+        contact: {
         },
         update: function(user) {
             var deferred = $q.defer();
@@ -43,18 +44,6 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
 
             return deferred.promise;
         },
-        contactUs: function(user) {
-        var deferred = $q.defer();
-        var updatedUser = new UsersResource(user);
-        updatedUser._id = identity.currentUser._id;
-        updatedUser.$update().then(function() {
-            identity.currentUser.username = updatedUser.username;
-            deferred.resolve();
-        }, function(response) {
-            deferred.reject(response);
-        });
-        return deferred.promise;
-    },
         promote: function(user) {
             var deferred = $q.defer();
             var updatedUser = new UsersResource(user);
@@ -75,7 +64,7 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
             $http.post('/logout').success(function() {
                 identity.currentUser = undefined;
                 deferred.resolve();
-            })
+            });
 
             return deferred.promise;
         },
@@ -96,4 +85,4 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
             }
         }
     }
-})
+});
