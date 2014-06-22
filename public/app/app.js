@@ -45,6 +45,9 @@ app.config(function($routeProvider, $locationProvider) {
             controller: 'PromoteCtrl',
             resolve: routeUserChecks.adminRole
         })
+        .when('/sudoku',{
+            templateUrl: '/partials/main/sudoku'
+        })
         .when('/contact',{
             templateUrl: '/partials/account/Info',
             controller: 'ContactCtrl'
