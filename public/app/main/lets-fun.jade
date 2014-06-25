@@ -2,19 +2,16 @@
     .jumbotron
         .wall
             .row
-                .col-md-9
-                    div.otherDiv
-                        div#canvasDiv
-                        canvas#mario-canvas
-                        div#buttonDiv
-                            button#startGame Start
-                            button#endGame Stop
-                            div#lifeDiv
-                            div#scoreDiv
-                            div#levelDiv
+                .col-md-8
+                    iframe(src="http://parizavseki.free.bg/mario.html")#canvas1
                 .col-md-3
                     div.firstPan
                         div.panel.panel-danger
                             div.panel-heading
                                 h3.panel-title.text-center Description of the game
-                            div.panel-body#describeDiv(ng-include="'partials/main/description'")
+                            div.panel-body#describeDiv
+                                div Score = 60 + 3 * Bonus(+1 for each cheese collected)
+                                div If you loose life your bonus is calculated to 0
+                                div Use the left and right arrow to move the mouse
+                                div When you level up the speed of falling cheese is increased
+                                img.boostedImg(src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRRMKABgUc_MFgbu1d5Rbh-DJwyzx3a7Jnx94Q7egzgYzEa4uGBde5PFZE")

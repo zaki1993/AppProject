@@ -5,10 +5,10 @@
                 th Username
                 th Firstname
                 th Lastname
-                th Role
+                th Email
 
             tr(ng-repeat="user in users")
                 td {{ user.username }}
                 td {{ user.firstName }}
                 td {{ user.lastName }}
-                td {{ user.roles.toString() }}
+                td {{ user.email }}

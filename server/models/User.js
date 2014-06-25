@@ -13,7 +13,7 @@ var userSchema = mongoose.Schema({
     salt: String,
     hashPass: String,
     roles: [String],
-    message: String
+    email: { type: String, require: '{PATH} is required', unique: true }
 });
 
 userSchema.method({
@@ -37,7 +37,7 @@ module.exports.seedInitialUsers = function() {
             var hashedPwd;
             salt = encryption.generateSalt();
             hashedPwd = encryption.generateHashedPassword(salt, '14eiuqhwdyeuq');
-            User.create({username: 'zaki1996', firstName: 'Zdravko', lastName: 'Petrov', salt: salt, hashPass: hashedPwd, roles: ['admin'], message: 'Message'});
+            User.create({username: 'zaki1996', firstName: 'Zdravko', lastName: 'Petrov', salt: salt, hashPass: hashedPwd, roles: ['admin'] ,email:'zaki1993@abv.bg'});
             console.log('Users added to database...');
     });
 };

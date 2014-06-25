@@ -50,7 +50,6 @@ app.factory('auth', function($http, $q, identity, UsersResource, notifier) {
             var updatedUser = new UsersResource(user);
             updatedUser._id = identity.currentUser._id;
             updatedUser.$update().then(function() {
-                identity.currentUser.username = updatedUser.username;
                 identity.currentUser.roles = updatedUser.roles;
                 deferred.resolve();
             }, function(response) {

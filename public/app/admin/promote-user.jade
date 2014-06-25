@@ -6,16 +6,16 @@
                 .form-group
                     label.col-md-2.control-label(for="first-name") User to promote
                     .col-md-10
-                        input.form-control(type="text", placeholder="Username", ng-model="user.firstName", required)
+                        input.form-control(type="text", placeholder="Username", ng-model="user.username", required)
                 .form-group
                     label.col-md-2.control-label(for="Roles") Role to be promoted
                     .col-md-10
-                        input.form-control(type="text", placeholder="Role", ng-model="user.role", required)
+                        input.form-control(type="text", placeholder="Role", ng-model="user.roles", required)
                 .form-group
                     label.col-md-2.control-label(for="Pass") Your Password
                     .col-md-10
-                        input.form-control(type="password", placeholder="Password", ng-model="user.password")
+                        input.form-control(type="password", placeholder="Password", ng-model="user.password",required)
                 .form-group
                     .pull-right
-                        button.btn.btn-primary(ng-click="promote(user)", ng-disabled="PromoteForm.$invalid") Promote
-                        a.btn.btn-primary(href="#/") Cancel
+                        button.buttonsContact.btn.btn-primary(ng-click="promote(user)", ng-disabled="PromoteForm.$invalid") Promote
+                        a.buttonsContact.btn.btn-primary(href="#/") Cancel

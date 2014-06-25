@@ -69,12 +69,48 @@ body .buttonsContact {
   height: 32px;
 }
 #canvas {
-  width: 400px;
-  height: 400px;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  background-color: #fff;
-  box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
+  width: 520px;
+  height: 330px;
+  background-color: transparent;
 }
 .text {
   font-weight: bold;
+}
+.coloredCell {
+  background-color: #7fff00;
+}
+.coloredCell1 {
+  background-color: #adff2f;
+}
+.coloredCell2 {
+  background-color: #98fb98;
+}
+.coloredCell3 {
+  background-color: #00bfff;
+}
+.coloredCell4 {
+  background-color: #87cefa;
+}
+.coloredCell5 {
+  background-color: #b0e0e6;
+}
+.coloredCell6 {
+  background-color: #ff69b4;
+}
+.coloredCell7 {
+  background-color: #f08080;
+}
+.coloredCell8 {
+  background-color: #ffc0cb;
+}
+input {
+  font-weight: bold;
+}
+iframe {
+  border-color: transparent;
+  background-color: transparent;
+}
+#canvas1 {
+  width: 600px;
+  height: 500px;
 }
