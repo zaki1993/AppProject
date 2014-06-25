@@ -1,4 +1,4 @@
-'use strict';
+var app = angular.module("Mario", []);
 $(document).ready(function(){console.log("You need to collect the cheese!!!");
     console.log("When you pick a cheese you will receive 90 points !!!");
     var canvas = document.getElementById('mario-canvas');

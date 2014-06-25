@@ -60,5 +60,21 @@ body .buttonsContact {
   width: 300px;
 }
 .InputS {
-  width: 50px;
+  width: 40px;
+  height: 40px;
+}
+.loginIn {
+  width: 155px;
+  border-radius: 5px;
+  height: 32px;
+}
+#canvas {
+  width: 400px;
+  height: 400px;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  background-color: #fff;
+  box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
+}
+.text {
+  font-weight: bold;
 }

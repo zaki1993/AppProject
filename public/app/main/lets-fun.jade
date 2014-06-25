@@ -1,16 +1,20 @@
 .container
     .jumbotron
-            div.otherDiv
-                div#canvasDiv
-                canvas#mario-canvas
-                div#buttonDiv
-                    button#startGame Start
-                    button#endGame Stop
-                    div#lifeDiv
-                    div#scoreDiv
-                    div#levelDiv
-            div.pull-right.firstPan
-                div.panel.panel-danger
-                    div.panel-heading
-                        h3.panel-title.text-center Description of the game
-                    div.panel-body#describeDiv(ng-include="'partials/main/description'")
+        .wall
+            .row
+                .col-md-9
+                    div.otherDiv
+                        div#canvasDiv
+                        canvas#mario-canvas
+                        div#buttonDiv
+                            button#startGame Start
+                            button#endGame Stop
+                            div#lifeDiv
+                            div#scoreDiv
+                            div#levelDiv
+                .col-md-3
+                    div.firstPan
+                        div.panel.panel-danger
+                            div.panel-heading
+                                h3.panel-title.text-center Description of the game
+                            div.panel-body#describeDiv(ng-include="'partials/main/description'")

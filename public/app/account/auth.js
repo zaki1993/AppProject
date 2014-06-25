@@ -12,7 +12,8 @@ app.factory('auth', function($http, $q, identity, UsersResource, notifier) {
             });
             return deferred.promise;
         },
-        contact: {
+        solve: function(){
+
         },
         update: function(user) {
             var deferred = $q.defer();

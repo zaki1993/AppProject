@@ -1,8 +1,8 @@
 .navbar-right(ng-controller="LoginCtrl")
     form.navbar-form(ng-hide="identity.isAuthenticated()")
         .form-group
-            input.form-control(type="text", placeholder="Username", ng-model="user.username")
-            input.form-control(type="password", placeholder="Password", ng-model="user.password")
+            input.loginIn(type="text", placeholder="Username", ng-model="user.username")
+            input.loginIn(type="password", placeholder="Password", ng-model="user.password")
         button.btn.btn-primary(ng-click="login(user)") Login
         a.btn.btn-primary(href="#/signup") Sign Up
 

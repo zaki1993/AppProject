@@ -46,7 +46,8 @@ app.config(function($routeProvider, $locationProvider) {
             resolve: routeUserChecks.adminRole
         })
         .when('/sudoku',{
-            templateUrl: '/partials/main/sudoku'
+            templateUrl: '/partials/main/sudoku',
+            controller: 'Sudoku'
         })
         .when('/contact',{
             templateUrl: '/partials/account/Info',
@@ -54,6 +55,9 @@ app.config(function($routeProvider, $locationProvider) {
         })
         .when('/havefun',{
             templateUrl: 'partials/main/lets-fun'
+        })
+        .when('/drawsomething',{
+            templateUrl: 'partials/main/drawsomething'
         });
     });
 app.run(function($rootScope, $location) {
